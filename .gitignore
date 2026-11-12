@@ -1,0 +1,71 @@
+# ===============================
+# WordPress Core (NO versionar)
+# ===============================
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/index.php
+/xmlrpc.php
+/license.txt
+/readme.html
+
+# ===============================
+# wp-content (ignorar subidas, caché y plugins)
+# ===============================
+/wp-content/uploads/
+/wp-content/upgrade/
+/wp-content/plugins/
+/wp-content/wflogs/
+/wp-content/cache/
+/wp-content/litespeed/
+/wp-content/advanced-cache.php
+/wp-content/object-cache.php
+/wp-content/db.php
+
+# ===============================
+# Frontend (maquetas HTML)
+# ===============================
+/frontend/
+
+# ===============================
+# Configuración sensible y servidor
+# ===============================
+wp-config.php
+wordfence-waf.php
+.htaccess
+.htaccess.bk
+.hcflag
+.litespeed_flag
+.env
+.env.*
+*.local.php
+*.bk
+*.bak
+
+# ===============================
+# Dependencias
+# ===============================
+/node_modules/
+/vendor/
+
+# ===============================
+# Build / Cache
+# ===============================
+/dist/
+/build/
+/.cache/
+
+# ===============================
+# Logs
+# ===============================
+*.log
+debug.log
+
+# ===============================
+# OS / IDE
+# ===============================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

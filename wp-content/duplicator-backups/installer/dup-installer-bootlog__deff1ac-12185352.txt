@@ -1,0 +1,26 @@
+[Nov 12 19:02:58] 
+[Nov 12 19:02:58] ==DUPLICATOR INSTALLER BOOTSTRAP v5.1.1==
+[Nov 12 19:02:58] ----------------------------------------------------
+[Nov 12 19:02:58] Installer bootstrap start
+[Nov 12 19:02:58] Target dir dup folder "/home/clicocom/public_html/sandbox/retiroestrategico.mx/dup-installer"
+[Nov 12 19:02:58] Ready to extract the installer
+[Nov 12 19:02:58] Checking permission of destination folder
+[Nov 12 19:02:58] Expand directory from offset 160141155
+[Nov 12 19:02:58] SAPI: CGI
+[Nov 12 19:02:58] No need to create /home/clicocom/public_html/sandbox/retiroestrategico.mx/dup-installer/.htaccess or /home/clicocom/public_html/sandbox/retiroestrategico.mx/dup-installer/.user.ini
+[Nov 12 19:02:58] Set permissions of /home/clicocom/public_html/sandbox/retiroestrategico.mx/dup-installer<br/>
+[Nov 12 19:02:58] Set permissions of /home/clicocom/public_html/sandbox/retiroestrategico.mx/dup-installer/addons<br/>
+[Nov 12 19:02:58] Set permissions of /home/clicocom/public_html/sandbox/retiroestrategico.mx/dup-installer/api<br/>
+[Nov 12 19:02:58] Set permissions of /home/clicocom/public_html/sandbox/retiroestrategico.mx/dup-installer/assets<br/>
+[Nov 12 19:02:58] Set permissions of /home/clicocom/public_html/sandbox/retiroestrategico.mx/dup-installer/classes<br/>
+[Nov 12 19:02:58] Set permissions of /home/clicocom/public_html/sandbox/retiroestrategico.mx/dup-installer/ctrls<br/>
+[Nov 12 19:02:58] Set permissions of /home/clicocom/public_html/sandbox/retiroestrategico.mx/dup-installer/dup_descriptors_[HASH]<br/>
+[Nov 12 19:02:58] Set permissions of /home/clicocom/public_html/sandbox/retiroestrategico.mx/dup-installer/favicon<br/>
+[Nov 12 19:02:58] Set permissions of /home/clicocom/public_html/sandbox/retiroestrategico.mx/dup-installer/libs<br/>
+[Nov 12 19:02:58] Set permissions of /home/clicocom/public_html/sandbox/retiroestrategico.mx/dup-installer/src<br/>
+[Nov 12 19:02:58] Set permissions of /home/clicocom/public_html/sandbox/retiroestrategico.mx/dup-installer/templates<br/>
+[Nov 12 19:02:58] Set permissions of /home/clicocom/public_html/sandbox/retiroestrategico.mx/dup-installer/vendor<br/>
+[Nov 12 19:02:58] Set permissions of /home/clicocom/public_html/sandbox/retiroestrategico.mx/dup-installer/vendor-prefixed<br/>
+[Nov 12 19:02:58] Set permissions of /home/clicocom/public_html/sandbox/retiroestrategico.mx/dup-installer/index.php<br/>
+[Nov 12 19:02:58] Set permissions of /home/clicocom/public_html/sandbox/retiroestrategico.mx/dup-installer/main.installer.php<br/>
+[Nov 12 19:02:58] DONE: No detected errors so redirecting to the main installer. Main Installer URI = https://clico.com.mx/sandbox/retiroestrategico.mx/dup-installer/main.installer.php

@@ -1,0 +1,91 @@
+# BEGIN LSCACHE
+## LITESPEED WP CACHE PLUGIN - Do not edit the contents of this block! ##
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteRule litespeed/debug/.*\.log$ - [F,L]
+RewriteRule \.litespeed_conf\.dat - [F,L]
+</IfModule>
+<IfModule LiteSpeed>
+CacheLookup on
+RewriteRule .* - [E=Cache-Control:no-autoflush]
+
+### marker ASYNC start ###
+RewriteCond %{REQUEST_URI} /wp-admin/admin-ajax\.php
+RewriteCond %{QUERY_STRING} action=async_litespeed
+RewriteRule .* - [E=noabort:1]
+### marker ASYNC end ###
+
+### marker DROPQS start ###
+CacheKeyModify -qs:fbclid
+CacheKeyModify -qs:gclid
+CacheKeyModify -qs:utm*
+CacheKeyModify -qs:_ga
+### marker DROPQS end ###
+
+</IfModule>
+## LITESPEED WP CACHE PLUGIN - Do not edit the contents of this block! ##
+# END LSCACHE
+Redirect gone /hakkimizda/
+Redirect gone /iletisim/
+Redirect gone /gizlilik-politikasi/
+
+# Redirecciona permanentemente (301) las URLs especificas a su nueva ubicacion en /blog/
+RewriteRule ^guia-completa-2025-de-la-pension-por-ley-73-del-imss/?$ /blog/guia-completa-2025-de-la-pension-por-ley-73-del-imss/ [R=301,L]
+RewriteRule ^infonavit-t100-el-nuevo-credito-para-la-vivienda-que-facilita-comprar-casa/?$ /blog/infonavit-t100-el-nuevo-credito-para-la-vivienda-que-facilita-comprar-casa/ [R=301,L]
+RewriteRule ^semanas-cotizadas-imss-un-factor-clave-para-tu-pension/?$ /blog/semanas-cotizadas-imss-un-factor-clave-para-tu-pension/ [R=301,L]
+RewriteRule ^como-tramitar-tu-pension-imss-ley-73-sin-errores-guia-definitiva-paso-a-paso-2025/?$ /blog/como-tramitar-tu-pension-imss-ley-73-sin-errores-guia-definitiva-paso-a-paso-2025/ [R=301,L]
+RewriteRule ^como-obtener-tu-constancia-de-semanas-cotizadas-del-imss-en-3-minutos-2025/?$ /blog/como-obtener-tu-constancia-de-semanas-cotizadas-del-imss-en-3-minutos-2025/ [R=301,L]
+RewriteRule ^nuevo-esquema-de-pago-en-linea-para-la-modalidad-40-del-imss-2025/?$ /blog/nuevo-esquema-de-pago-en-linea-para-la-modalidad-40-del-imss-2025/ [R=301,L]
+RewriteRule ^modalidad-40-del-imss-2025-guia-completa-para-mejorar-tu-pension-paso-a-paso/?$ /blog/modalidad-40-del-imss-2025-guia-completa-para-mejorar-tu-pension-paso-a-paso/ [R=301,L]
+RewriteRule ^descubre-como-funciona-el-programa-de-trabajador-independiente-del-imss/?$ /blog/descubre-como-funciona-el-programa-de-trabajador-independiente-del-imss/ [R=301,L]
+RewriteRule ^constancia-de-semanas-cotizadas-como-interpretar-tu-historial-afiliatorio/?$ /blog/constancia-de-semanas-cotizadas-como-interpretar-tu-historial-afiliatorio/ [R=301,L]
+RewriteRule ^trabajador-independiente-en-el-imss-2025-todo-lo-que-debes-saber-antes-de-inscribirte/?$ /blog/trabajador-independiente-en-el-imss-2025-todo-lo-que-debes-saber-antes-de-inscribirte/ [R=301,L]
+
+RewriteRule ^simulador/?$ /simuladores/simulador-pension-imss/ [R=301,L]
+# BEGIN NON_LSCACHE
+## LITESPEED WP CACHE PLUGIN - Do not edit the contents of this block! ##
+## LITESPEED WP CACHE PLUGIN - Do not edit the contents of this block! ##
+# END NON_LSCACHE
+# This file was updated by Duplicator on 2025-10-02 17:56:50.
+# See the original_files_ folder for the original source_site_htaccess file.
+# BEGIN WordPress
+# Las directivas (líneas) entre "BEGIN WordPress" y "END WordPress" son
+# generadas dinámicamente y solo deberían ser modificadas mediante filtros de WordPress.
+# Cualquier cambio en las directivas que hay entre esos marcadores serán sobrescritas.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+# Wordfence WAF
+<IfModule LiteSpeed>
+php_value auto_prepend_file '/home/retissbk/public_html/wordfence-waf.php'
+</IfModule>
+<IfModule lsapi_module>
+php_value auto_prepend_file '/home/retissbk/public_html/wordfence-waf.php'
+</IfModule>
+<Files ".user.ini">
+<IfModule mod_authz_core.c>
+	Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+	Order deny,allow
+	Deny from all
+</IfModule>
+</Files>
+
+# END Wordfence WAF
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
+deny from 157.15.40.76

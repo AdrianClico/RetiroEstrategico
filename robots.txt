@@ -1,0 +1,31 @@
+# Archivo robots.txt optimizado para WordPress
+# Última actualización: octubre 2025
+
+User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+
+# Bloquear feeds RSS y de comentarios (no aportan valor SEO)
+Disallow: /feed/
+Disallow: /comments/feed/
+Disallow: /*/feed/
+Disallow: /*/comments/feed/
+
+# Bloquear páginas innecesarias o duplicadas
+Disallow: /?s=          # búsquedas internas
+Disallow: /search        # si usas URLs amigables para búsquedas
+Disallow: /trackback/
+Disallow: /xmlrpc.php
+Disallow: /cgi-bin/
+
+# Bloquear parámetros de sesión o de tracking comunes
+Disallow: /*?replytocom=
+Disallow: /*?share=
+
+# Permitir acceso a los recursos estáticos (CSS, JS, imágenes)
+Allow: /*.js$
+Allow: /*.css$
+Allow: /wp-content/uploads/
+
+# Sitemap actualizado
+Sitemap: https://retiroestrategico.mx/sitemaps.xml
