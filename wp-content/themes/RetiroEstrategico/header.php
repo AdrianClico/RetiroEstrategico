@@ -116,7 +116,7 @@ if (function_exists('wp_body_open')) {
                             aria-label="Facebook"
                     >
                         <img
-                                src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/facebook.svg'); ?>"
+                                src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/header/facebook.svg'); ?>"
                                 alt=""
                                 width="18"
                                 height="18"
@@ -130,7 +130,7 @@ if (function_exists('wp_body_open')) {
                             aria-label="LinkedIn"
                     >
                         <img
-                                src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/linkedin.svg'); ?>"
+                                src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/header/linkedin.svg'); ?>"
                                 alt=""
                                 width="18"
                                 height="18"
@@ -144,7 +144,7 @@ if (function_exists('wp_body_open')) {
                             aria-label="YouTube"
                     >
                         <img
-                                src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/youtube.svg'); ?>"
+                                src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/header/youtube.svg'); ?>"
                                 alt=""
                                 width="22"
                                 height="18"
@@ -158,7 +158,7 @@ if (function_exists('wp_body_open')) {
                             aria-label="TikTok"
                     >
                         <img
-                                src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/tiktok.svg'); ?>"
+                                src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/header/tiktok.svg'); ?>"
                                 alt=""
                                 width="18"
                                 height="18"
@@ -172,7 +172,21 @@ if (function_exists('wp_body_open')) {
                             aria-label="Instagram"
                     >
                         <img
-                                src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/instagram.svg'); ?>"
+                                src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/header/instagram.svg'); ?>"
+                                alt=""
+                                width="18"
+                                height="18"
+                        >
+                    </a>
+
+                    <a
+                            href="https://x.com/RetiroEst"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="X"
+                    >
+                        <img
+                                src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/header/x.svg'); ?>"
                                 alt=""
                                 width="18"
                                 height="18"
@@ -193,7 +207,7 @@ if (function_exists('wp_body_open')) {
             >
                 <img
                         class="re-header__logo-positive"
-                        src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/logopositivo.svg'); ?>"
+                        src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/header/logopositivo.svg'); ?>"
                         alt="Retiro Estratégico"
                         width="214"
                         height="82"
@@ -201,7 +215,7 @@ if (function_exists('wp_body_open')) {
 
                 <img
                         class="re-header__logo-negative"
-                        src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/logo_negativo.svg'); ?>"
+                        src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/header/logo_negativo.svg'); ?>"
                         alt=""
                         aria-hidden="true"
                         width="214"
@@ -315,6 +329,236 @@ if (function_exists('wp_body_open')) {
         </div>
 
     </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const header = document.getElementById('re-header');
+
+            if (!header) return;
+
+            const toggle = header.querySelector('.re-header__toggle');
+            const navigation = header.querySelector('.re-header__navigation');
+            const mainRow = header.querySelector('.re-header__main');
+            const topRow = header.querySelector('.re-header__top');
+            const logo = header.querySelector('.re-header__logo');
+            const mobile = window.matchMedia('(max-width: 1200px)');
+            const submenus = [];
+
+            /*
+             * Conserva el espacio del encabezado cuando pasa a posición fija.
+             */
+            const spacer = document.createElement('div');
+
+            spacer.className = 're-header-spacer';
+            spacer.setAttribute('aria-hidden', 'true');
+
+            header.before(spacer);
+
+            /*
+             * Añade un botón independiente a cada enlace con submenú.
+             */
+            header.querySelectorAll('.re-header__menu li').forEach(function (item, index) {
+                const children = Array.from(item.children);
+                const submenu = children.find(function (child) {
+                    return child.tagName === 'UL';
+                });
+                const link = children.find(function (child) {
+                    return child.tagName === 'A';
+                });
+
+                if (!submenu || !link) return;
+
+                submenu.id = 're-header-submenu-' + index;
+
+                const button = document.createElement('button');
+                const label = link.textContent.replace(/\s+/g, ' ').trim();
+
+                button.type = 'button';
+                button.className = 're-header__submenu-toggle';
+                button.setAttribute('aria-controls', submenu.id);
+                button.setAttribute('aria-expanded', 'false');
+                button.setAttribute('aria-label', 'Abrir submenú: ' + label);
+
+                function setExpanded(open) {
+                    item.classList.toggle('is-submenu-open', open);
+
+                    button.setAttribute('aria-expanded', String(open));
+                    button.setAttribute(
+                        'aria-label',
+                        (open ? 'Cerrar' : 'Abrir') + ' submenú: ' + label
+                    );
+                }
+
+                button.addEventListener('click', function () {
+                    setExpanded(button.getAttribute('aria-expanded') !== 'true');
+                });
+
+                item.addEventListener('pointerenter', function (event) {
+                    if (!mobile.matches && event.pointerType === 'mouse') {
+                        setExpanded(true);
+                    }
+                });
+
+                item.addEventListener('pointerleave', function (event) {
+                    if (
+                        !mobile.matches &&
+                        event.pointerType === 'mouse' &&
+                        !item.contains(document.activeElement)
+                    ) {
+                        setExpanded(false);
+                    }
+                });
+
+                item.addEventListener('focusin', function (event) {
+                    if (!mobile.matches && event.target === link) {
+                        setExpanded(true);
+                    }
+                });
+
+                item.addEventListener('focusout', function (event) {
+                    if (!mobile.matches && !item.contains(event.relatedTarget)) {
+                        setExpanded(false);
+                    }
+                });
+
+                item.addEventListener('keydown', function (event) {
+                    if (
+                        event.key === 'Escape' &&
+                        button.getAttribute('aria-expanded') === 'true'
+                    ) {
+                        event.stopPropagation();
+                        setExpanded(false);
+                        button.focus();
+                    }
+                });
+
+                item.insertBefore(button, submenu);
+                submenus.push(setExpanded);
+            });
+
+            function setMenuOpen(open) {
+                header.classList.toggle('is-menu-open', open);
+
+                toggle.setAttribute('aria-expanded', String(open));
+                toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+
+                if (!open) {
+                    submenus.forEach(function (setExpanded) {
+                        setExpanded(false);
+                    });
+                }
+            }
+
+            toggle.addEventListener('click', function () {
+                setMenuOpen(!header.classList.contains('is-menu-open'));
+            });
+
+            navigation.addEventListener('click', function (event) {
+                if (mobile.matches && event.target.closest('a')) {
+                    setMenuOpen(false);
+                }
+            });
+
+            document.addEventListener('click', function (event) {
+                if (!header.contains(event.target)) {
+                    setMenuOpen(false);
+                }
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (
+                    event.key === 'Escape' &&
+                    header.classList.contains('is-menu-open')
+                ) {
+                    setMenuOpen(false);
+                    toggle.focus();
+                }
+            });
+
+            header.addEventListener('focusout', function (event) {
+                if (mobile.matches && !header.contains(event.relatedTarget)) {
+                    setMenuOpen(false);
+                }
+            });
+
+            /*
+             * Ajusta el desplazamiento por la barra de administración de WordPress.
+             */
+            function updateAdminOffset() {
+                const adminBar = document.getElementById('wpadminbar');
+                const offset = adminBar
+                    ? Math.max(0, adminBar.getBoundingClientRect().bottom)
+                    : 0;
+
+                document.documentElement.style.setProperty(
+                    '--re-admin-offset',
+                    offset + 'px'
+                );
+            }
+
+            function measureHeader() {
+                let mainHeight = mainRow.getBoundingClientRect().height;
+
+                /*
+                 * En móvil medimos solo la fila del logo y el botón,
+                 * sin incluir el panel desplegado.
+                 */
+                if (mobile.matches) {
+                    const styles = getComputedStyle(mainRow);
+
+                    mainHeight = Math.max(
+                        parseFloat(styles.minHeight) || 0,
+                        Math.max(
+                            logo.getBoundingClientRect().height,
+                            toggle.getBoundingClientRect().height
+                        ) +
+                        (parseFloat(styles.paddingTop) || 0) +
+                        (parseFloat(styles.paddingBottom) || 0)
+                    );
+                }
+
+                const height = Math.ceil(
+                    topRow.getBoundingClientRect().height + mainHeight
+                );
+
+                document.documentElement.style.setProperty(
+                    '--re-header-height',
+                    height + 'px'
+                );
+
+                updateAdminOffset();
+            }
+
+            function updateScroll() {
+                header.classList.toggle('is-scrolled', window.scrollY > 24);
+                updateAdminOffset();
+            }
+
+            mobile.addEventListener('change', function () {
+                setMenuOpen(false);
+                measureHeader();
+            });
+
+            window.addEventListener('resize', measureHeader, { passive: true });
+            window.addEventListener('scroll', updateScroll, { passive: true });
+
+            if ('ResizeObserver' in window) {
+                const observer = new ResizeObserver(measureHeader);
+
+                observer.observe(topRow);
+                observer.observe(logo);
+            }
+
+            header.classList.add('re-header--ready');
+
+            measureHeader();
+            updateScroll();
+
+            if (document.fonts) {
+                document.fonts.ready.then(measureHeader);
+            }
+        });
+    </script>
 
     <?php
 

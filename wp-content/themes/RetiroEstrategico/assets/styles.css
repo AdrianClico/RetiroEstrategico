@@ -895,6 +895,179 @@
         transition: none;
     }
 }
+
+/* Header fijo */
+
+.re-header.re-header--ready {
+    position: fixed;
+    top: var(--re-admin-offset, 0px);
+    left: 0;
+    width: 100%;
+    transition: box-shadow 0.2s ease;
+}
+
+.re-header.is-scrolled {
+    box-shadow: 0 4px 20px rgba(13, 44, 84, 0.12);
+}
+
+.re-header-spacer {
+    height: var(--re-header-height, 140px);
+}
+
+/* Flechas de submenús */
+
+.re-header--ready .re-header__menu > li.menu-item-has-children > a {
+    padding-right: 24px;
+}
+
+.re-header__submenu-toggle {
+    position: absolute;
+    top: 18px;
+    right: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 28px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.re-header__submenu-toggle:hover,
+.re-header__submenu-toggle:focus {
+    background: transparent;
+    color: inherit;
+}
+
+.re-header__submenu-toggle::after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+}
+
+.re-header__submenu-toggle[aria-expanded="true"]::after {
+    transform: rotate(225deg);
+}
+
+.re-header__menu .sub-menu .re-header__submenu-toggle {
+    top: 8px;
+    right: 4px;
+}
+
+.re-header__menu .sub-menu .menu-item-has-children > a {
+    padding-right: 34px;
+}
+
+/* Con JavaScript, el estado del submenú lo controla su botón. */
+
+.re-header--ready .re-header__menu .sub-menu {
+    display: none;
+}
+
+.re-header--ready .re-header__menu li:hover > .sub-menu,
+.re-header--ready .re-header__menu li:focus-within > .sub-menu {
+    display: none;
+}
+
+.re-header--ready .re-header__menu li.is-submenu-open > .sub-menu {
+    display: block;
+}
+
+/* Menú móvil */
+
+@media (max-width: 1200px) {
+    .re-header--ready .re-header__toggle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        width: 46px;
+        height: 46px;
+        min-height: 0;
+        margin: 0;
+        padding: 10px;
+        background: transparent;
+        color: var(--re-header-blue);
+        border: 1px solid currentColor;
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: none;
+    }
+
+    .re-header__toggle span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background-color: currentColor;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .re-header.is-menu-open .re-header__toggle span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .re-header.is-menu-open .re-header__toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .re-header.is-menu-open .re-header__toggle span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .re-header--ready .re-header__navigation {
+        display: none;
+        max-height: calc(
+                100dvh - var(--re-header-height, 140px) - var(--re-admin-offset, 0px)
+        );
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+
+    .re-header--ready.is-menu-open .re-header__navigation {
+        display: flex;
+    }
+
+    .re-header--ready .re-header__menu > li.menu-item-has-children > a {
+        padding-right: 52px;
+    }
+
+    .re-header__submenu-toggle {
+        top: 2px;
+        right: 0;
+        width: 44px;
+        height: 44px;
+        border: 1px solid #E5E7EB;
+    }
+
+    .re-header__menu .sub-menu .re-header__submenu-toggle {
+        top: 2px;
+        right: 0;
+    }
+
+    .re-header__menu .sub-menu .menu-item-has-children > a {
+        padding-right: 48px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .re-header.re-header--ready,
+    .re-header__toggle span,
+    .re-header__submenu-toggle::after {
+        transition: none;
+    }
+}
   
   
   
