@@ -5,11 +5,11 @@
         <picture class="re-home-hero__background" aria-hidden="true">
             <source
                     media="(max-width: 767px)"
-                    srcset="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/background_mobile.png'); ?>"
+                    srcset="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/header/background_mobile.png'); ?>"
             >
 
             <img
-                    src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/background_desktop.png'); ?>"
+                    src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/header/background_desktop.png'); ?>"
                     alt=""
                     width="1440"
                     height="838"
@@ -52,7 +52,7 @@
                 <div class="re-home-hero__result">
                     <img
                             class="re-home-hero__increase-icon"
-                            src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/incremento.svg'); ?>"
+                            src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/header/incremento.svg'); ?>"
                             alt=""
                             width="86"
                             height="73"
@@ -67,7 +67,7 @@
                 <div class="re-home-hero__result">
                     <img
                             class="re-home-hero__pension-icon"
-                            src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/pension.svg'); ?>"
+                            src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/header/pension.svg'); ?>"
                             alt=""
                             width="73"
                             height="73"
