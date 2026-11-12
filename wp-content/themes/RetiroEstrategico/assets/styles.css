@@ -1427,6 +1427,39 @@
         font-size: 10px;
     }
 }
+
+/* Transición entre header transparente y blanco */
+
+.re-header.re-header--ready {
+    transition:
+            background-color 0.35s ease,
+            color 0.35s ease,
+            box-shadow 0.35s ease;
+}
+
+.re-header__logo-positive,
+.re-header__logo-negative {
+    transition: opacity 0.35s ease;
+}
+
+.re-header__menu > li > a,
+.re-header__submenu-toggle,
+.re-header__toggle {
+    transition:
+            color 0.35s ease,
+            background-color 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .re-header.re-header--ready,
+    .re-header__logo-positive,
+    .re-header__logo-negative,
+    .re-header__menu > li > a,
+    .re-header__submenu-toggle,
+    .re-header__toggle {
+        transition: none;
+    }
+}
   
   
   
