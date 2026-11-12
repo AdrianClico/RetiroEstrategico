@@ -1068,6 +1068,365 @@
         transition: none;
     }
 }
+
+/* ========================================
+   BANNER PRINCIPAL
+======================================== */
+
+.re-home-hero,
+.re-home-hero * {
+    box-sizing: border-box;
+}
+
+.re-home-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 838px;
+    padding: calc(var(--re-header-height, 140px) + 64px) 0 32px;
+    background-color: #0B1E3B;
+    color: #FFFFFF;
+    font-family: "Poppins", sans-serif;
+}
+
+.re-home-hero__background {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.re-home-hero__background img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.re-home-hero__container {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 80px);
+    max-width: 1280px;
+    min-height: 602px;
+    margin-inline: auto;
+}
+
+.re-home-hero__content {
+    width: 100%;
+    max-width: 680px;
+}
+
+.re-home-hero h1 {
+    margin: 0 0 10px;
+    color: #FFFFFF;
+    font-family: inherit;
+    font-size: 70px;
+    font-weight: 600;
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+}
+
+.re-home-hero h1 span {
+    display: block;
+    color: #F4AA08;
+}
+
+.re-home-hero__subtitle {
+    max-width: 670px;
+    margin: 0;
+    color: #FFFFFF;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.re-home-hero__description {
+    max-width: 445px;
+    margin: 52px 0 60px;
+    color: #FFFFFF;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.35;
+}
+
+.re-home-hero .re-home-hero__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 64px;
+    padding: 18px 28px;
+    background-color: #F4AA08;
+    color: #0D2C54;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-decoration: none;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.re-home-hero .re-home-hero__button:hover {
+    background-color: #E39B00;
+    color: #0D2C54;
+}
+
+.re-home-hero__button:focus-visible {
+    outline: 3px solid #FFFFFF;
+    outline-offset: 4px;
+}
+
+/* Recuadro de resultados */
+
+.re-home-hero__results {
+    display: flex;
+    align-items: stretch;
+    align-self: flex-end;
+    width: 650px;
+    max-width: 100%;
+    margin-top: auto;
+    padding: 24px;
+    background-color: rgba(249, 250, 251, 0.9);
+    color: #0D2C54;
+}
+
+.re-home-hero__result {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    min-width: 0;
+    padding: 8px 14px;
+}
+
+.re-home-hero__result + .re-home-hero__result {
+    border-left: 1px solid #888888;
+}
+
+.re-home-hero__result img {
+    display: block;
+    flex-shrink: 0;
+    height: auto;
+}
+
+.re-home-hero__increase-icon {
+    width: 86px;
+}
+
+.re-home-hero__pension-icon {
+    width: 73px;
+}
+
+.re-home-hero__result strong {
+    display: block;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+.re-home-hero__result span {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+/* Header transparente únicamente sobre este banner */
+
+.re-header-spacer--overlay {
+    display: none;
+}
+
+.re-header.is-home-overlay:not(.is-scrolled):not(.is-menu-open) {
+    background-color: transparent;
+    color: #FFFFFF;
+}
+
+.re-header.is-home-overlay:not(.is-scrolled):not(.is-menu-open)
+.re-header__logo-positive {
+    opacity: 0;
+}
+
+.re-header.is-home-overlay:not(.is-scrolled):not(.is-menu-open)
+.re-header__logo-negative {
+    opacity: 1;
+}
+
+.re-header.is-home-overlay:not(.is-scrolled):not(.is-menu-open)
+.re-header__toggle {
+    color: #FFFFFF;
+}
+
+.re-header.is-home-overlay:not(.is-scrolled):not(.is-menu-open)
+.re-header__menu > li > a:hover {
+    color: #F4AA08;
+}
+
+/* Escritorio mediano */
+
+@media (min-width: 1201px) and (max-width: 1399px) {
+    .re-home-hero h1 {
+        font-size: 62px;
+    }
+
+    .re-home-hero__subtitle {
+        max-width: 600px;
+        font-size: 35px;
+    }
+}
+
+/* Tablet */
+
+@media (min-width: 768px) and (max-width: 1200px) {
+    .re-home-hero {
+        min-height: 780px;
+        padding-top: calc(var(--re-header-height, 140px) + 48px);
+    }
+
+    .re-home-hero__container {
+        width: calc(100% - 48px);
+        min-height: 580px;
+    }
+
+    .re-home-hero__content {
+        max-width: 520px;
+    }
+
+    .re-home-hero h1 {
+        font-size: 52px;
+    }
+
+    .re-home-hero__subtitle {
+        font-size: 30px;
+    }
+
+    .re-home-hero__description {
+        max-width: 350px;
+        margin: 36px 0;
+        font-size: 19px;
+    }
+
+    .re-home-hero__results {
+        width: 570px;
+        margin-top: 32px;
+        padding: 18px;
+    }
+
+    .re-home-hero__result {
+        gap: 14px;
+        padding: 6px 12px;
+    }
+
+    .re-home-hero__increase-icon {
+        width: 64px;
+    }
+
+    .re-home-hero__pension-icon {
+        width: 54px;
+    }
+
+    .re-home-hero__result strong {
+        font-size: 28px;
+    }
+
+    .re-home-hero__result span {
+        font-size: 16px;
+    }
+}
+
+/* Móvil */
+
+@media (max-width: 767px) {
+    .re-home-hero {
+        min-height: 0;
+        padding: calc(
+                var(--re-header-height, 140px) + clamp(280px, 72vw, 540px)
+        ) 0 32px;
+    }
+
+    .re-home-hero__background {
+        bottom: auto;
+    }
+
+    .re-home-hero__background img {
+        height: auto;
+    }
+
+    .re-home-hero__container {
+        width: calc(100% - 40px);
+        min-height: 0;
+    }
+
+    .re-home-hero__content {
+        max-width: none;
+    }
+
+    .re-home-hero h1 {
+        font-size: clamp(31px, 8.4vw, 48px);
+        line-height: 1.1;
+    }
+
+    .re-home-hero__subtitle {
+        font-size: clamp(23px, 6.1vw, 30px);
+        line-height: 1.22;
+    }
+
+    .re-home-hero__description {
+        max-width: 440px;
+        margin: 26px 0;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .re-home-hero .re-home-hero__button {
+        min-height: 50px;
+        padding: 14px 22px;
+    }
+
+    .re-home-hero__results {
+        width: 100%;
+        margin-top: 32px;
+        padding: 16px 8px;
+    }
+
+    .re-home-hero__result {
+        gap: 9px;
+        padding: 4px 8px;
+    }
+
+    .re-home-hero__increase-icon {
+        width: 42px;
+    }
+
+    .re-home-hero__pension-icon {
+        width: 36px;
+    }
+
+    .re-home-hero__result strong {
+        font-size: clamp(20px, 5.8vw, 30px);
+    }
+
+    .re-home-hero__result span {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .re-home-hero__result {
+        gap: 6px;
+        padding-inline: 5px;
+    }
+
+    .re-home-hero__result strong {
+        font-size: 19px;
+    }
+
+    .re-home-hero__result span {
+        font-size: 10px;
+    }
+}
   
   
   

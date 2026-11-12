@@ -353,6 +353,10 @@ if (function_exists('wp_body_open')) {
             spacer.setAttribute('aria-hidden', 'true');
 
             header.before(spacer);
+            if (document.querySelector('.re-home-hero')) {
+                header.classList.add('is-home-overlay');
+                spacer.classList.add('re-header-spacer--overlay');
+            }
 
             /*
              * Añade un botón independiente a cada enlace con submenú.
