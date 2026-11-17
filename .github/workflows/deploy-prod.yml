@@ -24,4 +24,3 @@ jobs:
           port: 21
           local-dir: wp-content/themes/RetiroEstrategico/
           server-dir: /wp-content/themes/RetiroEstrategico/
-          dry-run: true
