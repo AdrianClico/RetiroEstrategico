@@ -21,6 +21,8 @@
 /wp-content/advanced-cache.php
 /wp-content/object-cache.php
 /wp-content/db.php
+/wp-content/duplicator-backups/
+/wp-content/upgrade-temp-backup/
 
 # ===============================
 # Frontend (maquetas HTML)
