@@ -17,9 +17,9 @@ jobs:
       - name: Deploy theme via FTP
         uses: samkirkland/ftp-deploy-action@v4.3.5
         with:
-          server: ${{ secrets.DEV_FTP_SERVER }}
-          username: ${{ secrets.DEV_FTP_USERNAME }}
-          password: ${{ secrets.DEV_FTP_PASSWORD }}
+          server: ${{ secrets.PROD_FTP_SERVER }}
+          username: ${{ secrets.PROD_FTP_USERNAME }}
+          password: ${{ secrets.PROD_FTP_PASSWORD }}
           protocol: ftps
           local-dir: wp-content/themes/RetiroEstrategico/
           server-dir: public_html/wp-content/themes/RetiroEstrategico/
