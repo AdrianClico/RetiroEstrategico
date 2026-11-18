@@ -5,11 +5,11 @@
         <picture class="re-home-hero__background" aria-hidden="true">
             <source
                     media="(max-width: 767px)"
-                    srcset="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/header/background_mobile.png'); ?>"
+                    srcset="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/header/background_mobile.webp'); ?>"
             >
 
             <img
-                    src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/header/background_desktop.png'); ?>"
+                    src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/header/background_desktop.webp'); ?>"
                     alt=""
                     width="1440"
                     height="838"
